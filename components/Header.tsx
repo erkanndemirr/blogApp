@@ -19,7 +19,7 @@ const Header = () => {
           <p className='text-[4rem]'>.</p>
         </div>
         <h1 className='text-white text-[10rem] font-bold max-sm:text-7xl -mt-10 max-sm:mt-0'>&lt;Blog.&gt;</h1>
-        <div className='text-white text-2xl max-sm:text-lg max-sm:mt-5'>"Colors of Life:<TypeAnimation sequence={[
+        <div className='text-white text-2xl max-sm:text-lg max-sm:mt-5'>&quot;Colors of Life:<TypeAnimation sequence={[
           // Same substring at the start will only be typed out once, initially
           'Thoughts',
           1000, // wait 1s before replacing "Mice" with "Hamsters"
@@ -31,7 +31,7 @@ const Header = () => {
         ]}
           wrapper="span"
           speed={10}
-          repeat={Infinity} />"</div>
+          repeat={Infinity} />&quot;</div>
 
 
       </div>
