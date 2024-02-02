@@ -1,6 +1,8 @@
+'use client'
 import React from 'react'
 import { Londrina_Shadow } from "next/font/google";
 import Image from 'next/image';
+import { TypeAnimation } from 'react-type-animation';
 
 
 const londrina = Londrina_Shadow({
@@ -17,7 +19,21 @@ const Header = () => {
         <p className='text-[4rem]'>.</p>
       </div>
       <h1 className='text-white text-[10rem] font-bold max-sm:text-7xl -mt-10'>&lt;Blog.&gt;</h1>
-      <p className='text-white text-2xl'>"Colors of Life: Thoughts, Experiences, and Shared Stories!"</p>
+      <div  className='text-white text-2xl'>"Colors of Life: <TypeAnimation sequence={[
+        // Same substring at the start will only be typed out once, initially
+        'Thoughts',
+        1000, // wait 1s before replacing "Mice" with "Hamsters"
+        'Experiences',
+        1000,
+        'and Shared Stories!',
+        1000,
+    
+      ]}
+      wrapper="span"
+      speed={10}
+      repeat={Infinity}/>"</div>
+      
+      
     </div>
   )
 }
