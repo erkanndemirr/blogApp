@@ -22,7 +22,7 @@ const Footer = () => {
 
 
                         <div className="flex flex-row space-x-8 items-center justify-between">
-                            <Link href='/'>
+                            <Link href='https://web.telegram.org/a/#5445826578'>
                                 <Image src='/Telegram.svg' alt='logo' width={25} height={25} />
                             </Link>
                             <Link href='/' >

@@ -3,7 +3,7 @@ import React from 'react'
 import { Londrina_Shadow } from "next/font/google";
 import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
-
+import Navbar from "@/components/Navbar";
 
 const londrina = Londrina_Shadow({
   weight: "400",
@@ -11,8 +11,13 @@ const londrina = Londrina_Shadow({
 });
 const Header = () => {
   return (
-
-      <div className="flex flex-col  justify-center items-center h-[100vh] w-full bg-center bg-[url('/2.jpg')] bg-no-repeat bg-cover pb-20">
+    <header>
+      <nav className='absolute top-0 left-0 w-full'>
+      <Navbar  />
+      </nav>
+      
+      <section className="flex flex-col  justify-center items-center h-[100vh] w-full bg-center bg-[url('/2.jpg')] bg-no-repeat bg-cover pb-20">
+  
         <div className='flex gap-2 text-white '>
           <p className=' text-[4rem]'>.</p>
           <p className=' pt-[2.7rem] max-sm:pt-[3.2rem] text-[2rem] font-bold max-sm:text-2xl max-sm:text-[1.5rem]'>Erkan Demir</p>
@@ -34,8 +39,8 @@ const Header = () => {
           repeat={Infinity} />&quot;</div>
 
 
-      </div>
-
+      </section>
+    </header>
 
   )
 }
