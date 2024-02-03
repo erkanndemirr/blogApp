@@ -17,7 +17,7 @@ const Navbar = () => {
                     </li>
 
                     <li>
-                        <Link href='/api/auth/signin' className='text-white hover:underline'> Login </Link>
+                        <Link href='/login' className='text-white hover:underline'> Login </Link>
                     </li>
 
 
