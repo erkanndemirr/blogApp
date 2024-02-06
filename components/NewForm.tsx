@@ -1,16 +1,51 @@
 'use client'
-
+import axios from "axios";
+import { useSession } from 'next-auth/react';
 import Image from 'next/image'
-import React from 'react'
+import { useRouter } from 'next/router';
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import ReactTextareaAutosize from 'react-textarea-autosize';
-
+import { FormData } from '@/types/blog';
 const inputClass = 'w-full py-2 px-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 bg-transparent';
 
-const NewForm = () => {
+const NewForm = () => {  
+    const [formData, setFormData] = useState<FormData>({
+        title: '',
+        content: '',
+      });
+      const { data } = useSession();
+      const router = useRouter();
+    
+      const handleChange = (
+        e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      ) => {
+        e.preventDefault();
+        const { name, value } = e.target;
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+      };
+    
+      const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    
+        try {
+          const response = await axios.post('api/posts', formData);
+    
+          if (response.status === 200) {
+            router.push(`/blogs/${response.data.newPost.id}`);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+    
+        
     return (
         <div>
 
-            <form className='max-w-md mx-auto p-4'>
+            <form className='max-w-md mx-auto p-4' onSubmit={handleSubmit} >
                 <div className="flex items-center justify-center w-full mb-5 ">
                     <label className=" bg-transparent hover:text-gray-950 flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-[#cdcdcd34] dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                         <div className="flex flex-col items-center justify-center pt-5 pb-6 ">
@@ -24,10 +59,21 @@ const NewForm = () => {
                     </label>
                 </div>
                 <div className='mb-4'>
-                    <input type="text" className={inputClass} placeholder='Başlık Gir' name='title' />
+                    <input 
+                   value={formData.title}
+                   onChange={handleChange}
+                    type="text" 
+                    className={inputClass} 
+                    placeholder='Başlık Gir' 
+                    name='title' />
                 </div>
                 <div className='mb-4'>
-                    <ReactTextareaAutosize minLength={5} name='content' className={inputClass} placeholder='İçerik Girin' />
+                    <ReactTextareaAutosize minLength={5} 
+                      value={formData.content}
+                      onChange={handleChange}
+                    name='content' 
+                    className={inputClass} 
+                    placeholder='İçerik Girin' />
                 </div>
                 <button type='submit' className='border border-[#626262] bg-transparent hover:bg-[#ffffff30] text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-blue-300 w-full disabled:bg-gray-400'>Gönder</button>
             </form>
