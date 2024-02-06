@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
                     return null;
                 }
 
-                const passMatch = await compare(credentials?.password, user?.password);
+                const passMatch = await compare(credentials?.password, user?.password || "");
 
                 if (!passMatch) {
                     return null;
@@ -43,6 +43,7 @@ export const authOptions: NextAuthOptions = {
 
                 return {
                     id: `${user.id}`,
+                    email: user.username, // burasi Eklenmeli Email Alıyorsun Ama Email Degeri Yok sadece id vardı ozaman id alıcaktın
                 }
 
             }

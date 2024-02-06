@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useSession } from 'next-auth/react';
 import Image from 'next/image'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import { FormData } from '@/types/blog';
@@ -15,7 +15,7 @@ const NewForm = () => {
       });
       const { data } = useSession();
       const router = useRouter();
-    
+      
       const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
       ) => {
@@ -31,7 +31,7 @@ const NewForm = () => {
         e.preventDefault();
     
         try {
-          const response = await axios.post('api/posts', formData);
+          const response = await axios.post('api/posts', {title: formData.title, content: formData.content, authorId: data?.user?.email}); //author id gonderilmeli apide var ama gonderilmiyor
     
           if (response.status === 200) {
             router.push(`/blogs/${response.data.newPost.id}`);
