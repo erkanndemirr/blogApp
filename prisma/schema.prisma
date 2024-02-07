@@ -6,9 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 
@@ -23,7 +23,6 @@ model Post {
   id        Int     @id @default(autoincrement())
   title     String?
   content   String?
-  published Boolean @default(false)
   author    User    @relation(fields: [authorId], references: [username])
   authorId  String // id eklenmemiş sessiona ondan dolayı username gore alınacak ve String Olacak
 }

@@ -1,15 +1,31 @@
-import prisma from '@/lib/prisma'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+"use client"
 
-const Card = async () => {
-    const post = await prisma.post.findMany()
+import { FormData } from '@/types/blog'
+import axios from 'axios'
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
+
+const Card = () => {
+
+    const [posts, setPosts] = useState<FormData[]>([])
+    
+    useEffect(() => {
+        const getAllPost = async () => {
+            try {
+                const res = await axios.get("/api/posts/all-post")
+                console.log(res)
+                setPosts(res.data.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getAllPost()
+    })
     return (
         <div className='mx-10 max-sm:mr-5'>
             <ol className="relative border-s border-gray-200 dark:border-gray-700 ">
 
-                {post.map((post) => (
+                {posts.map((post) => (
                     <li className="mb-10 ms-4 border rounded-lg p-2" key={post.id}>
                         <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                         <p className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</p>
