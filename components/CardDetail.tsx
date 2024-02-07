@@ -9,7 +9,8 @@ import { FormData } from '@/types/blog';
 const CardDetail = () => {
     const [data, setData] = useState<FormData>({
         title: "",
-        content: ""
+        content: "",
+        published: false
     })
 
   const pathname = usePathname();

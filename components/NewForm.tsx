@@ -6,24 +6,27 @@ import { useRouter } from 'next/navigation';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import { FormData } from '@/types/blog';
-const inputClass = 'w-full py-2 px-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 bg-transparent';
+const inputClass = 'text-white w-full py-2 px-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 bg-transparent';
 
 const NewForm = () => {  
     const [formData, setFormData] = useState<FormData>({
         title: '',
         content: '',
-      });
+        published: false
+      })
       const { data } = useSession();
       const router = useRouter();
       
       const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
       ) => {
-        e.preventDefault();
-        const { name, value } = e.target;
+        const { name} = e.target;
+        
+        const isChecked = (e.target as HTMLInputElement).checked;
+
         setFormData({
           ...formData,
-          [name]: value,
+          [name]: name === 'published' ? isChecked : e.target.value,
         });
       };
     
@@ -31,8 +34,7 @@ const NewForm = () => {
         e.preventDefault();
     
         try {
-          const response = await axios.post('api/posts', {title: formData.title, content: formData.content, authorId: data?.user?.email}); //author id gonderilmeli apide var ama gonderilmiyor
-    
+          const response = await axios.post('api/posts', {title: formData.title, content: formData.content, authorId: data?.user?.email, published: formData.published}); //author id gonderilmeli apide var ama gonderilmiyor
           if (response.status === 200) {
             router.push(`/blogs/${response.data.newPost.id}`);
           }
@@ -75,6 +77,16 @@ const NewForm = () => {
                     className={inputClass} 
                     placeholder='İçerik Girin' />
                 </div>
+                <div className='mb-4'>
+                  
+                   <input 
+                   type="checkbox"
+                  checked={formData.published}
+                  onChange={handleChange}
+                   />
+                   <label className="ml-2 text-white">Detail Page</label>
+                </div>
+                
                 <button type='submit' className='border border-[#626262] bg-transparent hover:bg-[#ffffff30] text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-blue-300 w-full disabled:bg-gray-400'>Gönder</button>
             </form>
         </div>
