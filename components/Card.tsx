@@ -1,9 +1,9 @@
-"use client"
+
 
 import prisma from '@/lib/prisma'
 import { FormData } from '@/types/blog'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+
 
 const Card = async () => {
 

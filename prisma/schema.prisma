@@ -23,7 +23,7 @@ model Post {
   title     String?
   content   String?
   published  Boolean 
-  createdAt  DateTime?     @default(now())
+  createdAt  DateTime    @default(now())
   author    User    @relation(fields: [authorId], references: [username])
   authorId  String // id eklenmemiş sessiona ondan dolayı username gore alınacak ve String Olacak
 }

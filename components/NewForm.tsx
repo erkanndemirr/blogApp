@@ -20,21 +20,29 @@ const NewForm = () => {
       const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
       ) => {
-        const { name} = e.target;
-        
-        const isChecked = (e.target as HTMLInputElement).checked;
-
+        const { name, value, type } = e.target;
+      
+        let newValue: string | boolean = value;
+      
+        if (type === 'checkbox') {
+          newValue = (e.target as HTMLInputElement).checked;
+        }
+      
         setFormData({
           ...formData,
-          [name]: name === 'published' ? isChecked : e.target.value,
+          [name]: newValue,
         });
       };
+      
+      
+      
     
       const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-    
+
+        console.log(formData)
         try {
-          const response = await axios.post('api/posts', {title: formData.title, content: formData.content, authorId: data?.user?.email, published: formData.published}); //author id gonderilmeli apide var ama gonderilmiyor
+          const response = await axios.post('/api/posts', {title: formData.title, content: formData.content, authorId: data?.user?.email, published: formData.published}); // author id gonderilmeli apide var ama gonderilmiyor
           if (response.status === 200) {
             router.push(`/blogs/${response.data.newPost.id}`);
           }
@@ -81,8 +89,6 @@ const NewForm = () => {
                   
                    <input 
                    type="checkbox"
-                  checked={formData.published}
-                  onChange={handleChange}
                    />
                    <label className="ml-2 text-white">Detail Page</label>
                 </div>

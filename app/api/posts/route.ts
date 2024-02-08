@@ -8,12 +8,13 @@ export async function POST(req: Request) {
   const user = await getCurrentUser();
 
 
+
   try {
     if (!user?.email) {
       return NextResponse.json({ message: 'Not Authenticated!' }, { status: 401 })
     }
     console.log(user?.email)
-
+    console.log(title, authorId, content, published)
 
     const newPost = await prisma.post.create({
       data: {
@@ -26,6 +27,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ newPost }, { status: 200 })
 
   } catch (error) {
-    return NextResponse.json({ message: 'Something went wrong!' }, { status: 500 })
+    return NextResponse.json({ message: error }, { status: 500 })
   }
 }
