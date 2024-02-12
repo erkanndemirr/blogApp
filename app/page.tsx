@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="">
       {/* HashFunc Hasleme Fonksiypnudur Registere Gerek Kalmadan Kullanılabilinir Kaldırabilirsin İstersen */}
-      {/* <HashFunc password="ErkanDemir35" />  */}
+      {/* <HashFunc password="" />  */}
      <Header/>
      <PostView/>
      <Footer/>
