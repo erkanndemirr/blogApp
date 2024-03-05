@@ -25,10 +25,10 @@ const Footer = () => {
                             <Link href='https://web.telegram.org/a/#5445826578'>
                                 <Image src='/Telegram.svg' alt='logo' width={25} height={25} />
                             </Link>
-                            <Link href='/' >
+                            <Link href='https://www.linkedin.com/in/erkan-demir-1a3469284/' >
                                 <Image src='/LinkedIn.svg' alt='logo' width={25} height={25} />
                             </Link>
-                            <Link href=''>
+                            <Link href='https://twitter.com/erkanndmr_'>
                                 <Image src='/x.svg' alt='logo' width={25} height={25} />
                             </Link>
                         </div>
