@@ -60,54 +60,41 @@ const LoginForm = () => {
   console.log(data);
 
   return (
-    <section className="py-6  bg-[rgba(218,218,219,255)]">
-      <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x ">
-        <div className=" h-full py-6 md:py-0 md:px-6 ">
-          <h1 className="text-4xl font-bold text-center text-[#3b3b3b]">
-            Touch the Future
-          </h1>
-          <Image src="/02.gif" alt="Gif" width={700} height={700} />
+    <section className="w-full flex items-center justify-between gap-10 px-40">
+      <div className="flex flex-col items-start">
+        <div>
+          <p className="text-4xl font-bold mb-5">Hi  First of all, how about a name?</p>
+          <p className="text-xl  mb-5 text-[#848484]">Dont forget you will interact with this name</p>
         </div>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col justify-center py-6 space-y-6 md:py-0 md:px-6 border-[#3b3b3b] "
-        >
-          <label className="block">
-            <span className="mb-3 text-xl text-[#3b3b3b] font-semibold">
-              Username{" "}
-            </span>
-            <input
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              type="text"
-              placeholder="Kullanıcı Adı Giriniz"
-              className="mt-2 bg-[rgba(218,218,219,255)] block w-full rounded-md shadow-sm focus:ring focus:ring-offset-2  focus:ring-blue-300  py-2  outline-blue-500 transition-all px-1"
-              required
-            />
+        <form action="" className="flex flex-col">
+        <label htmlFor="" className="text-[#7d7d7d] mb-2 ml-1">Name Surname</label>
+        <input id="handle" type="text" className="mb-2 bg-[#f7f7f7] py-2 pl-5 pr-10 text-base placeholder-blue w-full p-0 outline-none text-[#6c6c6c] ml-[2px]" name="handle" placeholder="john Carter" />
+        <label htmlFor="" className="text-[#7d7d7d] mb-2 ml-1">Username</label>
+          <label className="input-field inline-flex items-baseline border-none rounded-md bg-[#f7f7f7] py-2 pl-5 pr-10">
+            <span className="flex-none text-[#7d7d7d] select-none text-base leading-none">ibloger.me/ </span>
+            <div className="flex-1 leading-none">
+              <input id="handle" type="text" className="bg-[#f7f7f7] mb-2 text-base placeholder-blue w-full p-0 outline-none text-[#6c6c6c] ml-[2px]" name="handle" placeholder="john" />
+            </div>
           </label>
-          <label className="block">
-            <span className="mb-3 text-xl text-[#3b3b3b] font-semibold">
-              Password
-            </span>
-            <input
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Şifre Giriniz"
-              className="mt-2 bg-[rgba(218,218,219,255)] block w-full rounded-md shadow-sm focus:ring focus:ring-offset-2  focus:ring-blue-300  py-2  outline-blue-500 transition-all px-1"
-            />
-          </label>
-
-          <button
-            type="submit"
-            disabled={disabled}
-            className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ri focus:ri hover:ri border border-[#3b3b3b] cursor-pointer"
-          >
-            Submit
-          </button>
+          <label htmlFor="" className="text-[#7d7d7d] mb-2 ml-1">Email</label>
+        <input id="handle" type="text" className="mb-2 bg-[#f7f7f7] py-2 pl-5 pr-20 text-base placeholder-blue w-full p-0 outline-none text-[#6c6c6c] ml-[2px]" name="handle" placeholder="john Carter" />
+       <div className="flex">
+        <div className="flex flex-col"> 
+          <label htmlFor="" className="text-[#7d7d7d] mb-2 ml-1">Password</label>
+        <input id="handle" type="password" className="mb-2 bg-[#f7f7f7] py-2 mr-2 pl-5 pr-4 text-base placeholder-blue  p-0 outline-none text-[#6c6c6c] ml-[2px]"  /></div>
+        <div className="flex flex-col">
+        <label htmlFor="" className="text-[#7d7d7d] mb-2 ml-1">Password Again</label>
+        <input id="handle" type="password" className="mb-2 bg-[#f7f7f7] py-2 pl-5 pr-4 text-base placeholder-blue  p-0 outline-none text-[#6c6c6c] ml-[2px]"  />
+        </div>
+       </div>
+          <button type="submit" disabled={disabled} className=" px-[9.7rem] rounded-md mt-4 py-2 text-base font-medium  border bg-black text-white  cursor-pointer">Submit</button>
         </form>
+        <div className="mt-5 text-[#595959]">or Log in</div>
       </div>
-    </section>
+      <div className="w-20 h-20 bg-blue-900">
+
+      </div>
+    </section >
   );
 };
 

@@ -36,9 +36,9 @@ const Header = () => {
         <Image src="/hand1.svg" alt='hand1' width={450} height={450} className='hand1 absolute right-0 mb-2 ' />
         <Image src="/hand2.svg" alt='hand1' width={450} height={450} className='hand2 absolute left-0 mt-10' />
         <div className='text-2xl font-medium w-[50rem] text-center mt-2 text-[#7D7D7D]' >Start Your Personal Blog, Share Your Thoughts with the World and Write Your Own Story</div>
-        <div className="flex max-w-sm rounded-3xl bg-gradient-to-tr from-[#05D3AE] via-[#2E1EE4] to-[#990077] p-0.5 shadow-lg mt-10">
+        <Link href="/login" className="flex max-w-sm rounded-3xl bg-gradient-to-tr from-[#05D3AE] via-[#2E1EE4] to-[#990077] p-0.5 shadow-lg mt-10">
           <button className="flex-1 font-bold text-xl bg-white px-6 py-3 rounded-3xl">Create Your First Blog Post</button>
-        </div>
+        </Link>
         <Link href="#" className='mt-2 text-lg'>Log in</Link>
       </section>
     </header>
