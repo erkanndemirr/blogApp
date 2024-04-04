@@ -1,16 +1,15 @@
-import Header from "@/components/Header";
-import PostView from "@/components/PostView";
-import Footer from "@/components/Footer";
+
+import HomePage from "@/components/HomePage";
+;
 import HashFunc from "@/components/hash-func";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="w-full">
       {/* HashFunc Hasleme Fonksiypnudur Registere Gerek Kalmadan Kullanılabilinir Kaldırabilirsin İstersen */}
       {/* <HashFunc password="" />  */}
-     <Header/>
-     <PostView/>
-     <Footer/>
+      <HomePage/>
+
     </main>
   );
 }

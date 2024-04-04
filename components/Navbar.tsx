@@ -9,12 +9,12 @@ const Navbar = () => {
   const session = useSession();
   return (
     <div className="flex justify-between items-center max-w-[87rem] mx-auto mt-4 max-sm:mx-5 ">
-      <Link href="/" className="text-white text-2xl font-bold flex gap-2">
+      <Link href="/" className="text-black text-2xl font-bold flex gap-2">
         <Image src="/logo.svg" alt="logo" width={30} height={30} />
       </Link>
       <ul className="flex space-x-4 items-center justify-center">
         <li>
-          <Link href="/" className="text-white hover:underline">
+          <Link href="/" className="text-black hover:underline">
             {" "}
             Blogs{" "}
           </Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
 
         {!session.data?.user?.email && (
           <li>
-            <Link href="/login" className="text-white hover:underline">
+            <Link href="/login" className="text-black hover:underline">
               {" "}
               Login{" "}
             </Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
         )}
 
         {session.data?.user?.email && (
-          <div className="flex items-center gap-2 text-white border py-1 px-2 rounded-lg border-white">
+          <div className="flex items-center gap-2 text-black border py-1 px-2 rounded-lg border-white">
             <p> {session.data.user.email} </p>
             <li>
               <Link

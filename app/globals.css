@@ -1,14 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
+@keyframes floaty {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
 
+		transform: translatey(-20px);
+	}
+	100% {
+
+		transform: translatey(0px);
+	}
+}
+@keyframes floatx {
+	0% {
+	
+		transform: translatex(0px);
+	}
+	50% {
+
+		transform: translatex(-20px);
+	}
+	100% {
+
+		transform: translatex(0px);
+	}
+}
+.hand1{
+  transform: translatey(0px);
+	animation: floaty 6s ease-in-out infinite;
+}
+.hand2{
+  transform: translatey(0px);
+	animation: floatx 6s ease-in-out infinite;
+}
+@font-face {
+  font-family: 'Rock Salt';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/rock-salt@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/rock-salt@latest/latin-400-normal.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+.lock{
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+}
 .londrina-shadow-regular {
   font-family: "Londrina Shadow", sans-serif;
   font-weight: 400;
@@ -19,3 +67,4 @@
     text-wrap: balance;
   }
 }
+
