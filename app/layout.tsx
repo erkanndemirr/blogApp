@@ -7,7 +7,7 @@ import AuthProvider from "./Provider";
 
 
 export const metadata: Metadata = {
-  title: "Blog | Erkan Demir",
+  title: "ibloger.me",
 };
 
 export default function RootLayout({

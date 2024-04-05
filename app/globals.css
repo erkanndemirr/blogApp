@@ -36,6 +36,7 @@
 		transform: translatex(0px);
 	}
 }
+
 .hand1{
   transform: translatey(0px);
 	animation: floaty 6s ease-in-out infinite;
@@ -44,6 +45,7 @@
   transform: translatey(0px);
 	animation: floatx 6s ease-in-out infinite;
 }
+
 @font-face {
   font-family: 'Rock Salt';
   font-style: normal;
@@ -68,3 +70,20 @@
   }
 }
 
+.line::before,
+.line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: black;
+}
+
+.line::before {
+  left: 0;
+}
+
+.line::after {
+  right: 0;
+}

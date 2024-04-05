@@ -1,5 +1,5 @@
 
-import HomePage from "@/components/HomePage";
+import HomePage from "@/components/HomePage/HomePage";
 ;
 import HashFunc from "@/components/hash-func";
 

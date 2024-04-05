@@ -1,4 +1,4 @@
-import Detail from '@/components/Detail'
+import Detail from '@/components/PostDetail/PostDetail'
 import { FC } from 'react'
 
 
