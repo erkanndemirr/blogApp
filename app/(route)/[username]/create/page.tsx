@@ -1,4 +1,4 @@
-import User from "@/components/User"
+import User from "@/components/Create/User"
 
 export default function page({params}:{
     params : {username : string}

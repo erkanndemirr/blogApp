@@ -87,3 +87,13 @@
 .line::after {
   right: 0;
 }
+
+
+@media (min-width: 643px) {
+  .left-sidebar {
+    position: sticky;
+    top: 2rem; /* Sayfanın en üstünde sabitlenmesi için */
+    height: 90vh; /* Sayfanın tamamını kaplayacak şekilde yükseklik */
+    overflow-y: auto; /* Gerekirse, içeriğin aşağı kaydırılmasını sağlar */
+  }
+}

@@ -18,8 +18,11 @@ const Header = () => {
       </nav> */}
 
       <section className="flex flex-col  justify-center items-center h-[100vh] w-full pb-20 ">
+  
+          <Image src="/logoibloger.svg" alt='logo' width={200} height={200} />
 
-        <h1 className='text-black text-center text-[4rem] font-bold max-sm:text-7xl mt-10 max-sm:mt-0 w-[50rem]'>Start Your Personal <span className='lock bg-gradient-to-r from-[#05D3AE] via-[#2E1EE4] to-[#990077] inline-block text-transparent bg-clip-text'>Blog </span>Share Your Thoughts</h1>
+
+        <h1 className='text-black text-center text-[4rem] font-bold max-sm:text-7xl  max-sm:mt-0 w-[50rem]'>Start Your Personal <span className='lock bg-gradient-to-r from-[#05D3AE] via-[#2E1EE4] to-[#990077] inline-block text-transparent bg-clip-text'>Blog </span>Share Your Thoughts</h1>
         {/* <div className='text-black text-2xl max-sm:text-lg max-sm:mt-5'>&quot;Colors of Life:<TypeAnimation sequence={[
           // Same substring at the start will only be typed out once, initially
           'Thoughts',
