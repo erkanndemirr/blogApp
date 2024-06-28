@@ -42,7 +42,7 @@ const Header = () => {
         <Link href="/login" className="flex max-w-sm rounded-3xl bg-gradient-to-tr from-[#05D3AE] via-[#2E1EE4] to-[#990077] p-0.5 shadow-lg mt-10">
           <button className="flex-1 font-bold text-xl bg-white px-6 py-3 rounded-3xl">Create Your First Blog Post</button>
         </Link>
-        <Link href="#" className='mt-2 text-lg'>Log in</Link>
+        <Link href="/login" className='mt-2 text-lg'>Log in</Link>
       </section>
     </header>
 

@@ -4,9 +4,11 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import UserPost from '../UserPost'
+import Button from '../Button'
 
 const User = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+   
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -21,23 +23,14 @@ const User = () => {
                         <h1 className='text-5xl font-bold'>Erkan Demir</h1>
                         <p className='text-2xl font-medium text-[#585858] my-2'>Software Engineer</p>
                         <p className='font-medium text-[#6a6a6a]'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit illum facilis magni quas similique dicta dolores consectetur optio modi perspiciatis.</p>
-                        <div className='flex items-start justify-center mt-5 gap-5'>
-                            <Image src="/x.png" alt='icon' width={30} height={30} />
-                            <Image src="/x.png" alt='icon' width={30} height={30} />
-                            <Image src="/x.png" alt='icon' width={30} height={30} />
-                        </div>
 
                     </div>
-                    <div className='flex items-center justify-center gap-5 max-sm:hidden'>
-
-                    </div>
-
+           
+                    <Button/>
                 </div>
 
                 <div className='flex flex-col items-center justify-center'>
-                    
-                        <Link href="" className='border my-5 px-4 py-2 text-2xl bg-[#d44545] rounded-3xl'>New Post</Link>
-                    
+
                     <div className='grid grid-cols-1 gap-y-5 gap-x-5 md:grid-cols-1 lg:grid-cols-2 px-10 max-sm:px-0'>
                         <UserPost />
                         <UserPost />

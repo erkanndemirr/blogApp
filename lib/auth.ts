@@ -20,16 +20,16 @@ export const authOptions: NextAuthOptions = {
 
             name: "Credentials",
             credentials: {
-                username: { label: "username", type: "username", placeholder: "erkandemir@gmail.com" },
+                email: { label: "email", type: "email", placeholder: "erkandemir@gmail.com" },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials) {
-                if (!credentials?.username || !credentials?.password) {
+                if (!credentials?.email || !credentials?.password) {
                     return null;
                 }
 
                 const user = await prisma.user.findUnique({
-                    where: { username: credentials?.username }
+                    where: { email: credentials?.email }
                 })
                 if (!user) {
                     return null;
@@ -43,7 +43,7 @@ export const authOptions: NextAuthOptions = {
 
                 return {
                     id: `${user.id}`,
-                    email: user.username, // brasi Eklenmeli Email Alıyorsun Ama Email Degeri Yok sadece id vardı ozaman id alıcaktın
+                    email: user.email, // brasi Eklenmeli Email Alıyorsun Ama Email Degeri Yok sadece id vardı ozaman id alıcaktın
                 }
 
             }

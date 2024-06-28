@@ -7,8 +7,6 @@ export async function POST(req: Request) {
   const { title, content, authorId, published } = body
   const user = await getCurrentUser();
 
-
-
   try {
     if (!user?.email) {
       return NextResponse.json({ message: 'Not Authenticated!' }, { status: 401 })
